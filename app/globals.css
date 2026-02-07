@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #faf8f5;
+  --ink: #2c2825;
+  --sage: #8b9a7d;
+  --stone: #a39e97;
+  --header: #131921;
+  --primary: #ff9900;
+}
+
+body {
+  @apply bg-gray-100 text-ink antialiased;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

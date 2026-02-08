@@ -33,6 +33,18 @@ export default async function DashboardLayout({
           >
             Add product
           </Link>
+          <Link
+            href="/dashboard/services"
+            className="text-sm font-medium text-ink hover:text-primary transition"
+          >
+            Services
+          </Link>
+          <Link
+            href="/dashboard/services/new"
+            className="text-sm font-medium text-primary hover:underline"
+          >
+            Add service
+          </Link>
           <span className="ml-auto text-sm text-gray-600">{session.user?.email}</span>
           <SignOutLink />
         </nav>

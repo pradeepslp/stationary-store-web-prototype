@@ -5,11 +5,17 @@ import { ProductCard } from "@/components/ProductCard";
 export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
-  const products = await prisma.product.findMany({
-    where: { published: true },
-    orderBy: { updatedAt: "desc" },
-    take: 8,
-  });
+  const [products, services] = await Promise.all([
+    prisma.product.findMany({
+      where: { published: true },
+      orderBy: { updatedAt: "desc" },
+      take: 8,
+    }),
+    prisma.service.findMany({
+      where: { isPublished: true },
+      orderBy: { updatedAt: "desc" },
+    }),
+  ]);
 
   return (
     <div>
@@ -32,23 +38,32 @@ export default async function HomePage() {
 
       <section id="services" className="mx-auto max-w-7xl px-3 py-8 sm:px-4 sm:py-12 lg:px-6">
         <h2 className="text-xl font-bold text-ink sm:text-2xl">Our Services</h2>
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-          <div className="rounded-lg bg-white shadow-card p-6 text-center">
-            <div className="text-4xl mb-3">📋</div>
-            <h3 className="text-lg font-semibold text-ink">Xerox & Photocopy</h3>
-            <p className="mt-2 text-sm text-ink/70">Fast and reliable photocopying and document duplication services.</p>
+        {services.length === 0 ? (
+          <p className="mt-6 text-gray-600">No services available yet. Check back soon.</p>
+        ) : (
+          <div className="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+            {services.map((service) => (
+              <Link
+                key={service.id}
+                href={`/services/${service.slug}`}
+                className="group rounded-lg bg-white shadow-card p-6 text-center hover:shadow-cardHover transition-shadow cursor-pointer"
+              >
+                <div className="text-4xl mb-3">
+                  🖥️
+                </div>
+                <h3 className="text-lg font-semibold text-ink group-hover:text-primary transition-colors">
+                  {service.name}
+                </h3>
+                <p className="mt-2 text-sm text-ink/70 line-clamp-2">
+                  {service.description}
+                </p>
+                <span className="mt-3 inline-block text-sm text-primary font-medium">
+                  Learn more →
+                </span>
+              </Link>
+            ))}
           </div>
-          <div className="rounded-lg bg-white shadow-card p-6 text-center">
-            <div className="text-4xl mb-3">🖨️</div>
-            <h3 className="text-lg font-semibold text-ink">Print Outs</h3>
-            <p className="mt-2 text-sm text-ink/70">High-quality color and black & white printing for all your needs.</p>
-          </div>
-          <div className="rounded-lg bg-white shadow-card p-6 text-center">
-            <div className="text-4xl mb-3">🏛️</div>
-            <h3 className="text-lg font-semibold text-ink">E-Sevai Services</h3>
-            <p className="mt-2 text-sm text-ink/70">Authorized Tamil Nadu government e-services center for your convenience.</p>
-          </div>
-        </div>
+        )}
       </section>
 
       <section className="mx-auto max-w-7xl px-3 py-8 sm:px-4 sm:py-12 lg:px-6">

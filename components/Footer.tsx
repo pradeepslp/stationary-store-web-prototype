@@ -36,7 +36,7 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white/90">Visit</h3>
             <p className="mt-3 text-sm text-white/80">
-              Visit us in store to purchase. We&apos;re here to help you find the perfect stationery.
+              Visit us for premium stationery, Xerox & photocopy, printing services, and Tamil Nadu E-Sevai facilities. We&apos;re here to help!
             </p>
           </div>
         </div>

@@ -34,6 +34,12 @@ export function Header() {
             Home
           </Link>
           <Link
+            href="/#services"
+            className="rounded px-2 py-2 text-white/90 hover:text-white transition-colors"
+          >
+            Services
+          </Link>
+          <Link
             href="/products"
             className="rounded px-2 py-2 text-white/90 hover:text-white transition-colors"
           >

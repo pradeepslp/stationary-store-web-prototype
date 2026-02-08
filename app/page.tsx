@@ -16,10 +16,10 @@ export default async function HomePage() {
       <section className="bg-header text-white">
         <div className="mx-auto max-w-7xl px-3 py-12 sm:px-4 sm:py-16 lg:px-6">
           <h1 className="text-3xl font-bold sm:text-4xl">
-            Fine stationery for thoughtful writing
+            Fine stationery, products & services
           </h1>
           <p className="mt-3 max-w-xl text-white/90">
-            Curated pens, notebooks, and paper. Visit us in store to discover and purchase.
+            Curated pens, notebooks, and paper. Xerox, printing, and government e-services. Visit us in store.
           </p>
           <Link
             href="/products"
@@ -27,6 +27,27 @@ export default async function HomePage() {
           >
             Shop now
           </Link>
+        </div>
+      </section>
+
+      <section id="services" className="mx-auto max-w-7xl px-3 py-8 sm:px-4 sm:py-12 lg:px-6">
+        <h2 className="text-xl font-bold text-ink sm:text-2xl">Our Services</h2>
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
+          <div className="rounded-lg bg-white shadow-card p-6 text-center">
+            <div className="text-4xl mb-3">📋</div>
+            <h3 className="text-lg font-semibold text-ink">Xerox & Photocopy</h3>
+            <p className="mt-2 text-sm text-ink/70">Fast and reliable photocopying and document duplication services.</p>
+          </div>
+          <div className="rounded-lg bg-white shadow-card p-6 text-center">
+            <div className="text-4xl mb-3">🖨️</div>
+            <h3 className="text-lg font-semibold text-ink">Print Outs</h3>
+            <p className="mt-2 text-sm text-ink/70">High-quality color and black & white printing for all your needs.</p>
+          </div>
+          <div className="rounded-lg bg-white shadow-card p-6 text-center">
+            <div className="text-4xl mb-3">🏛️</div>
+            <h3 className="text-lg font-semibold text-ink">E-Sevai Services</h3>
+            <p className="mt-2 text-sm text-ink/70">Authorized Tamil Nadu government e-services center for your convenience.</p>
+          </div>
         </div>
       </section>
 

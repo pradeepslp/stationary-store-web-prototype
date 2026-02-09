@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
@@ -49,39 +50,58 @@ export default async function DashboardProductsPage({
         <p className="mt-6 text-base text-ink/70">No products yet. Add your first product.</p>
       ) : (
         <>
-          <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[600px] border-collapse text-base">
-              <thead>
-                <tr className="border-b border-stone/30 text-left text-ink/70">
-                  <th className="py-3 pr-4 font-medium">Name</th>
-                  <th className="py-3 pr-4 font-medium">Category</th>
-                  <th className="py-3 pr-4 font-medium">Price</th>
-                  <th className="py-3 pr-4 font-medium">Status</th>
-                  <th className="py-3 font-medium">Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                {products.map((product) => (
-                  <tr key={product.id} className="border-b border-stone/20">
-                    <td className="py-3 pr-4 font-medium text-ink">{product.name}</td>
-                    <td className="py-3 pr-4 text-base text-ink/70">{product.category ?? "—"}</td>
-                    <td className="py-3 pr-4 text-base">{formatPrice(product.price)}</td>
-                    <td className="py-3 pr-4">
-                      <span
-                        className={`rounded-full px-2 py-1 text-sm font-medium ${
-                          product.published ? "bg-sage/20 text-sage" : "bg-stone/20 text-ink/70"
+          <div className="mt-6">
+            <div className="overflow-x-auto">
+              <div className="bg-black/60 backdrop-blur-lg border border-white/10 rounded-xl overflow-hidden shadow-2xl">
+                <table className="w-full min-w-[700px] border-collapse">
+                  <thead>
+                    <tr className="bg-white/90 text-black uppercase tracking-widest font-bold text-sm text-left">
+                      <th className="py-3 px-4">Image</th>
+                      <th className="py-3 px-4">Name</th>
+                      <th className="py-3 px-4">Category</th>
+                      <th className="py-3 px-4">Price</th>
+                      <th className="py-3 px-4">Stock</th>
+                      <th className="py-3 px-4">Status</th>
+                      <th className="py-3 px-4">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {products.map((product, idx) => (
+                      <tr
+                        key={product.id}
+                        className={`bg-transparent text-white border-b border-white/5 hover:bg-white/10 transition-colors ${
+                          idx % 2 === 0 ? "even:bg-white/5" : ""
                         }`}
                       >
-                        {product.published ? "Published" : "Draft"}
-                      </span>
-                    </td>
-                    <td className="py-3">
-                      <DashboardProductActions product={product} />
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                        <td className="py-3 px-4">
+                          {product.imageUrl ? (
+                            <div className="w-16 h-12 relative rounded overflow-hidden bg-white/5">
+                              <Image src={product.imageUrl} alt={product.name} fill className="object-cover" />
+                            </div>
+                          ) : (
+                            <div className="w-16 h-12 flex items-center justify-center bg-white/5 text-sm text-white/60 rounded">—</div>
+                          )}
+                        </td>
+                        <td className="py-3 px-4 text-base font-medium">{product.name}</td>
+                        <td className="py-3 px-4 text-base">{product.category ?? "—"}</td>
+                        <td className="py-3 px-4 text-base">{formatPrice(product.price)}</td>
+                        <td className="py-3 px-4 text-base">—</td>
+                        <td className="py-3 px-4">
+                          <span className={`rounded-full px-2 py-1 text-sm font-medium ${product.published ? "bg-white text-black" : "bg-white/5 text-white/80"}`}>
+                            {product.published ? "Published" : "Draft"}
+                          </span>
+                        </td>
+                        <td className="py-3 px-4">
+                          <div className="flex items-center gap-2">
+                            <DashboardProductActions product={product} />
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
           {totalPages > 1 && (
             <DashboardPagination currentPage={page} totalPages={totalPages} basePath="/dashboard/products" />

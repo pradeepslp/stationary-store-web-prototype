@@ -26,14 +26,22 @@ export function DashboardProductActions({ product }: Props) {
     <div className="flex items-center gap-2">
       <Link
         href={`/dashboard/products/${product.id}/edit`}
-        className="text-base text-sage hover:underline"
+        className="bg-black/40 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg text-base text-white hover:bg-white/20 transition-all"
       >
         Edit
       </Link>
-      <button type="button" onClick={togglePublish} className="text-base text-ink/70 hover:text-ink">
+      <button
+        type="button"
+        onClick={togglePublish}
+        className="bg-black/40 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg text-base text-white hover:bg-white/20 transition-all"
+      >
         {product.published ? "Unpublish" : "Publish"}
       </button>
-      <button type="button" onClick={deleteProduct} className="text-base text-red-600 hover:underline">
+      <button
+        type="button"
+        onClick={deleteProduct}
+        className="bg-black/40 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-lg text-base text-red-300 hover:bg-white/20 transition-all"
+      >
         Delete
       </button>
     </div>

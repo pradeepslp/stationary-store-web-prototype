@@ -6,6 +6,7 @@ import { prisma } from "@/lib/prisma";
 import { DashboardProductActions } from "@/components/DashboardProductActions";
 import { PRODUCTS_PER_PAGE, formatPrice } from "@/lib/utils";
 import { DashboardPagination } from "@/components/DashboardPagination";
+import { SectionHeading } from "@/components/SectionHeading";
 
 export const dynamic = "force-dynamic";
 
@@ -36,20 +37,20 @@ export default async function DashboardProductsPage({
   return (
     <div>
       <div className="flex items-center justify-between">
-        <h1 className="font-serif text-2xl font-semibold text-ink">Products</h1>
+        <SectionHeading>Products</SectionHeading>
         <Link
           href="/dashboard/products/new"
-          className="rounded border border-sage bg-sage px-4 py-2 text-sm font-medium text-white hover:bg-sage/90 transition"
+          className="rounded bg-sage px-8 py-3 text-base font-semibold text-white hover:bg-sage/90 shadow-2xl transition"
         >
           Add product
         </Link>
       </div>
       {products.length === 0 ? (
-        <p className="mt-6 text-ink/70">No products yet. Add your first product.</p>
+        <p className="mt-6 text-base text-ink/70">No products yet. Add your first product.</p>
       ) : (
         <>
           <div className="mt-6 overflow-x-auto">
-            <table className="w-full min-w-[600px] border-collapse text-sm">
+            <table className="w-full min-w-[600px] border-collapse text-base">
               <thead>
                 <tr className="border-b border-stone/30 text-left text-ink/70">
                   <th className="py-3 pr-4 font-medium">Name</th>
@@ -63,11 +64,11 @@ export default async function DashboardProductsPage({
                 {products.map((product) => (
                   <tr key={product.id} className="border-b border-stone/20">
                     <td className="py-3 pr-4 font-medium text-ink">{product.name}</td>
-                    <td className="py-3 pr-4 text-ink/70">{product.category ?? "—"}</td>
-                    <td className="py-3 pr-4">{formatPrice(product.price)}</td>
+                    <td className="py-3 pr-4 text-base text-ink/70">{product.category ?? "—"}</td>
+                    <td className="py-3 pr-4 text-base">{formatPrice(product.price)}</td>
                     <td className="py-3 pr-4">
                       <span
-                        className={`rounded-full px-2 py-1 text-xs font-medium ${
+                        className={`rounded-full px-2 py-1 text-sm font-medium ${
                           product.published ? "bg-sage/20 text-sage" : "bg-stone/20 text-ink/70"
                         }`}
                       >

@@ -28,7 +28,7 @@ export function LoginForm({ callbackUrl }: Props) {
   return (
     <form onSubmit={handleSubmit} className="mt-6 space-y-4">
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-ink">
+        <label htmlFor="email" className="block text-base font-medium text-ink">
           Email
         </label>
         <input
@@ -37,11 +37,11 @@ export function LoginForm({ callbackUrl }: Props) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
-        <label htmlFor="password" className="block text-sm font-medium text-ink">
+        <label htmlFor="password" className="block text-base font-medium text-ink">
           Password
         </label>
         <input
@@ -50,13 +50,13 @@ export function LoginForm({ callbackUrl }: Props) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <button
         type="submit"
         disabled={loading}
-        className="w-full rounded bg-primary py-2 text-sm font-semibold text-header hover:bg-primaryHover disabled:opacity-50 transition"
+        className="w-full rounded bg-primary py-3 text-base font-semibold text-header hover:bg-primaryHover disabled:opacity-50 transition"
       >
         {loading ? "Signing in…" : "Sign in"}
       </button>

@@ -73,10 +73,10 @@ export function ServiceForm({ service }: Props) {
   return (
     <form onSubmit={handleSubmit} className="mt-6 max-w-xl space-y-4">
       {error && (
-        <p className="rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>
+        <p className="rounded border border-red-200 bg-red-50 px-3 py-2 text-base text-red-700">{error}</p>
       )}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-ink">
+        <label htmlFor="name" className="block text-base font-medium text-ink">
           Service Name *
         </label>
         <input
@@ -85,11 +85,11 @@ export function ServiceForm({ service }: Props) {
           type="text"
           required
           defaultValue={service?.name}
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
-        <label htmlFor="category" className="block text-sm font-medium text-ink">
+        <label htmlFor="category" className="block text-base font-medium text-ink">
           Category
         </label>
         <input
@@ -98,7 +98,7 @@ export function ServiceForm({ service }: Props) {
           type="text"
           placeholder="e.g. E-Service, Xerox, Printing"
           defaultValue={service?.category ?? undefined}
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
@@ -110,11 +110,11 @@ export function ServiceForm({ service }: Props) {
           name="description"
           rows={4}
           defaultValue={service?.description ?? undefined}
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
-        <label htmlFor="priceDetails" className="block text-sm font-medium text-ink">
+        <label htmlFor="priceDetails" className="block text-base font-medium text-ink">
           Pricing Details
         </label>
         <textarea
@@ -123,11 +123,11 @@ export function ServiceForm({ service }: Props) {
           rows={3}
           placeholder="e.g. ₹10 per page, bulk discounts available"
           defaultValue={service?.priceDetails ?? undefined}
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
-        <label htmlFor="imageUrl" className="block text-sm font-medium text-ink">
+        <label htmlFor="imageUrl" className="block text-base font-medium text-ink">
           Image URL
         </label>
         <input
@@ -137,18 +137,18 @@ export function ServiceForm({ service }: Props) {
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
           placeholder="https://… or /uploads/… from upload below"
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-ink">
+        <label className="block text-base font-medium text-ink">
           Or upload image
         </label>
         <input
           type="file"
           accept="image/jpeg,image/png,image/webp,image/gif"
           disabled={uploading}
-          className="mt-1 block w-full text-sm text-ink file:mr-3 file:rounded file:border-0 file:bg-ink file:px-3 file:py-1.5 file:text-cream file:hover:bg-ink/90"
+          className="mt-1 block w-full text-base text-ink file:mr-3 file:rounded file:border-0 file:bg-ink file:px-3 file:py-1.5 file:text-cream file:hover:bg-ink/90"
           onChange={async (e) => {
             const file = e.target.files?.[0];
             if (!file) return;
@@ -178,7 +178,7 @@ export function ServiceForm({ service }: Props) {
             }
           }}
         />
-        {uploading && <p className="mt-1 text-sm text-ink/70">Uploading…</p>}
+        {uploading && <p className="mt-1 text-base text-ink/70">Uploading…</p>}
       </div>
       <div className="flex items-center gap-2">
         <input
@@ -188,7 +188,7 @@ export function ServiceForm({ service }: Props) {
           defaultChecked={service?.isPublished ?? false}
           className="h-4 w-4 rounded border-stone/30 text-sage focus:ring-sage"
         />
-        <label htmlFor="isPublished" className="text-sm font-medium text-ink">
+        <label htmlFor="isPublished" className="text-base font-medium text-ink">
           Published (visible on store)
         </label>
       </div>
@@ -196,14 +196,14 @@ export function ServiceForm({ service }: Props) {
         <button
           type="submit"
           disabled={loading}
-          className="rounded border border-ink bg-ink px-4 py-2 text-sm font-medium text-cream hover:bg-ink/90 disabled:opacity-50 transition"
+          className="rounded bg-ink px-8 py-3 text-base font-semibold text-cream hover:bg-ink/90 disabled:opacity-50 shadow-2xl transition"
         >
           {loading ? "Saving…" : isEdit ? "Save changes" : "Add service"}
         </button>
         <button
           type="button"
           onClick={() => router.back()}
-          className="rounded border border-stone/30 px-4 py-2 text-sm font-medium text-ink hover:bg-stone/10 transition"
+          className="rounded border border-stone/30 px-8 py-3 text-base font-semibold text-ink hover:bg-stone/10 transition"
         >
           Cancel
         </button>

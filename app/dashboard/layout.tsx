@@ -17,35 +17,41 @@ export default async function DashboardLayout({
         <nav className="mb-8 flex flex-wrap items-center gap-4 border-b border-gray-200 pb-4">
           <Link
             href="/dashboard"
-            className="text-sm font-medium text-ink hover:text-primary transition"
+            className="text-base font-medium text-ink hover:text-primary transition"
           >
             Dashboard
           </Link>
           <Link
             href="/dashboard/products"
-            className="text-sm font-medium text-ink hover:text-primary transition"
+            className="text-base font-medium text-ink hover:text-primary transition"
           >
             Products
           </Link>
           <Link
             href="/dashboard/products/new"
-            className="text-sm font-medium text-primary hover:underline"
+            className="text-base font-medium text-primary hover:underline"
           >
             Add product
           </Link>
           <Link
             href="/dashboard/services"
-            className="text-sm font-medium text-ink hover:text-primary transition"
+            className="text-base font-medium text-ink hover:text-primary transition"
           >
             Services
           </Link>
           <Link
             href="/dashboard/services/new"
-            className="text-sm font-medium text-primary hover:underline"
+            className="text-base font-medium text-primary hover:underline"
           >
             Add service
           </Link>
-          <span className="ml-auto text-sm text-gray-600">{session.user?.email}</span>
+          <Link
+            href="/dashboard/settings"
+            className="text-base font-medium text-ink hover:text-primary transition"
+          >
+            Settings
+          </Link>
+          <span className="ml-auto text-base text-gray-600">{session.user?.email}</span>
           <SignOutLink />
         </nav>
       )}

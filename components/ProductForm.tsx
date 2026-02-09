@@ -78,10 +78,10 @@ export function ProductForm({ product }: Props) {
   return (
     <form onSubmit={handleSubmit} className="mt-6 max-w-xl space-y-4">
       {error && (
-        <p className="rounded border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700">{error}</p>
+        <p className="rounded border border-red-200 bg-red-50 px-3 py-2 text-base text-red-700">{error}</p>
       )}
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-ink">
+        <label htmlFor="name" className="block text-base font-medium text-ink">
           Name *
         </label>
         <input
@@ -90,11 +90,11 @@ export function ProductForm({ product }: Props) {
           type="text"
           required
           defaultValue={product?.name}
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
-        <label htmlFor="description" className="block text-sm font-medium text-ink">
+        <label htmlFor="description" className="block text-base font-medium text-ink">
           Description
         </label>
         <textarea
@@ -102,11 +102,11 @@ export function ProductForm({ product }: Props) {
           name="description"
           rows={4}
           defaultValue={product?.description ?? undefined}
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
-        <label htmlFor="price" className="block text-sm font-medium text-ink">
+        <label htmlFor="price" className="block text-base font-medium text-ink">
           Price *
         </label>
         <input
@@ -117,11 +117,11 @@ export function ProductForm({ product }: Props) {
           min="0"
           required
           defaultValue={product?.price ?? ""}
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
-        <label htmlFor="imageUrl" className="block text-sm font-medium text-ink">
+        <label htmlFor="imageUrl" className="block text-base font-medium text-ink">
           Image URL
         </label>
         <input
@@ -131,18 +131,18 @@ export function ProductForm({ product }: Props) {
           value={imageUrl}
           onChange={(e) => setImageUrl(e.target.value)}
           placeholder="https://… or /uploads/… from upload below"
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-ink">
+        <label className="block text-base font-medium text-ink">
           Or upload from device
         </label>
         <input
           type="file"
           accept="image/jpeg,image/png,image/webp,image/gif"
           disabled={uploading}
-          className="mt-1 block w-full text-sm text-ink file:mr-3 file:rounded file:border-0 file:bg-ink file:px-3 file:py-1.5 file:text-cream file:hover:bg-ink/90"
+          className="mt-1 block w-full text-base text-ink file:mr-3 file:rounded file:border-0 file:bg-ink file:px-3 file:py-1.5 file:text-cream file:hover:bg-ink/90"
           onChange={async (e) => {
             const file = e.target.files?.[0];
             if (!file) return;
@@ -172,10 +172,10 @@ export function ProductForm({ product }: Props) {
             }
           }}
         />
-        {uploading && <p className="mt-1 text-sm text-ink/70">Uploading…</p>}
+        {uploading && <p className="mt-1 text-base text-ink/70">Uploading…</p>}
       </div>
       <div>
-        <label htmlFor="category" className="block text-sm font-medium text-ink">
+        <label htmlFor="category" className="block text-base font-medium text-ink">
           Category
         </label>
         <input
@@ -184,7 +184,7 @@ export function ProductForm({ product }: Props) {
           type="text"
           placeholder="e.g. Pens, Notebooks"
           defaultValue={product?.category ?? undefined}
-          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
+          className="mt-1 w-full rounded border border-stone/30 bg-white px-3 py-2 text-base text-ink focus:border-sage focus:outline-none focus:ring-1 focus:ring-sage"
         />
       </div>
       <div className="flex items-center gap-2">
@@ -195,7 +195,7 @@ export function ProductForm({ product }: Props) {
           defaultChecked={product?.published ?? false}
           className="h-4 w-4 rounded border-stone/30 text-sage focus:ring-sage"
         />
-        <label htmlFor="published" className="text-sm font-medium text-ink">
+        <label htmlFor="published" className="text-base font-medium text-ink">
           Published (visible on store)
         </label>
       </div>
@@ -203,14 +203,14 @@ export function ProductForm({ product }: Props) {
         <button
           type="submit"
           disabled={loading}
-          className="rounded border border-ink bg-ink px-4 py-2 text-sm font-medium text-cream hover:bg-ink/90 disabled:opacity-50 transition"
+          className="rounded bg-ink px-8 py-3 text-base font-semibold text-cream hover:bg-ink/90 disabled:opacity-50 shadow-2xl transition"
         >
           {loading ? "Saving…" : isEdit ? "Save changes" : "Add product"}
         </button>
         <button
           type="button"
           onClick={() => router.back()}
-          className="rounded border border-stone/30 px-4 py-2 text-sm font-medium text-ink hover:bg-stone/10 transition"
+          className="rounded border border-stone/30 px-8 py-3 text-base font-semibold text-ink hover:bg-stone/10 transition"
         >
           Cancel
         </button>

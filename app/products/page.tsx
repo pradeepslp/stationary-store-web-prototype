@@ -39,12 +39,12 @@ export default async function ProductsPage({
 
   return (
     <div className="mx-auto max-w-7xl px-3 py-6 sm:px-4 sm:py-8 lg:px-6">
-      <h1 className="text-2xl font-bold text-ink sm:text-3xl">All products</h1>
+      <h1 className="text-3xl font-bold text-ink sm:text-4xl">All products</h1>
       {categoryList.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2">
           <a
             href="/products"
-            className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+            className={`rounded-full px-4 py-2 text-base font-medium transition ${
               !category
                 ? "bg-primary text-header"
                 : "bg-white text-ink shadow-card hover:shadow-cardHover"
@@ -56,7 +56,7 @@ export default async function ProductsPage({
             <a
               key={cat}
               href={`/products?category=${encodeURIComponent(cat)}`}
-              className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+              className={`rounded-full px-4 py-2 text-base font-medium transition ${
                 category === cat
                   ? "bg-primary text-header"
                   : "bg-white text-ink shadow-card hover:shadow-cardHover"
@@ -68,7 +68,7 @@ export default async function ProductsPage({
         </div>
       )}
       {products.length === 0 ? (
-        <p className="mt-8 text-gray-600">No products to show.</p>
+        <p className="mt-8 text-base text-gray-600">No products to show.</p>
       ) : (
         <>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

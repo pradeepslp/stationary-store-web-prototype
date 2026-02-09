@@ -27,27 +27,27 @@ export function ProductsPagination({ currentPage, totalPages, basePath, category
       {prev ? (
         <Link
           href={prev}
-          className="rounded bg-white px-4 py-2 text-sm font-medium text-ink shadow-card hover:bg-primary hover:text-header transition"
+          className="rounded bg-white px-4 py-2 text-base font-medium text-ink shadow-card hover:bg-primary hover:text-header transition"
         >
           Previous
         </Link>
       ) : (
-        <span className="rounded bg-gray-200 px-4 py-2 text-sm text-gray-500 cursor-not-allowed">
+        <span className="rounded bg-gray-200 px-4 py-2 text-base text-gray-500 cursor-not-allowed">
           Previous
         </span>
       )}
-      <span className="text-sm text-ink/80">
+      <span className="text-base text-ink/80">
         Page {currentPage} of {totalPages}
       </span>
       {next ? (
         <Link
           href={next}
-          className="rounded bg-white px-4 py-2 text-sm font-medium text-ink shadow-card hover:bg-primary hover:text-header transition"
+          className="rounded bg-white px-4 py-2 text-base font-medium text-ink shadow-card hover:bg-primary hover:text-header transition"
         >
           Next
         </Link>
       ) : (
-        <span className="rounded bg-gray-200 px-4 py-2 text-sm text-gray-500 cursor-not-allowed">
+        <span className="rounded bg-gray-200 px-4 py-2 text-base text-gray-500 cursor-not-allowed">
           Next
         </span>
       )}

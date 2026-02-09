@@ -3,6 +3,7 @@ import { redirect, notFound } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { ProductForm } from "@/components/ProductForm";
+import { SectionHeading } from "@/components/SectionHeading";
 
 export const dynamic = "force-dynamic";
 
@@ -18,7 +19,7 @@ export default async function EditProductPage({ params }: Props) {
 
   return (
     <div>
-      <h1 className="font-serif text-2xl font-semibold text-ink">Edit product</h1>
+      <SectionHeading>Edit Product</SectionHeading>
       <ProductForm product={product} />
     </div>
   );

@@ -9,6 +9,14 @@
   --stone: #a39e97;
   --header: #131921;
   --primary: #ff9900;
+  /* Background and UI vars for dynamic theming */
+  --background-overlay: rgba(0,0,0,0.2);
+  --card-background: rgba(0,0,0,0.8);
+  --card-text-color: #ffffff;
+}
+
+html {
+  font-size: 18px;
 }
 
 body {

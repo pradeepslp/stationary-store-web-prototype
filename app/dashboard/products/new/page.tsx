@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { ProductForm } from "@/components/ProductForm";
+import { SectionHeading } from "@/components/SectionHeading";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,7 @@ export default async function NewProductPage() {
 
   return (
     <div>
-      <h1 className="font-serif text-2xl font-semibold text-ink">Add product</h1>
+      <SectionHeading>Add Product</SectionHeading>
       <ProductForm />
     </div>
   );

@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { ServiceForm } from "@/components/ServiceForm";
+import { SectionHeading } from "@/components/SectionHeading";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,7 @@ export default async function NewServicePage() {
 
   return (
     <div>
-      <h1 className="font-serif text-2xl font-semibold text-ink">Add service</h1>
+      <SectionHeading>Add Service</SectionHeading>
       <ServiceForm />
     </div>
   );

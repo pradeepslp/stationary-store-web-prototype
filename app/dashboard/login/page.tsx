@@ -2,6 +2,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { LoginForm } from "@/components/LoginForm";
+import { SectionHeading } from "@/components/SectionHeading";
 
 type Props = { searchParams: Promise<{ callbackUrl?: string; error?: string }> };
 
@@ -15,11 +16,11 @@ export default async function LoginPage({ searchParams }: Props) {
 
   return (
     <div className="mx-auto max-w-sm">
-      <h1 className="font-serif text-2xl font-semibold text-ink">Owner login</h1>
-      <p className="mt-2 text-sm text-ink/70">Sign in to manage your store.</p>
+      <SectionHeading>Owner Login</SectionHeading>
+      <p className="mt-4 text-base text-white/80">Sign in to manage your store.</p>
       <LoginForm callbackUrl={callbackUrl} />
       {error && (
-        <p className="mt-4 text-sm text-red-600">
+        <p className="mt-4 text-base text-red-600">
           {error === "CredentialsSignin" ? "Invalid email or password." : "Something went wrong."}
         </p>
       )}

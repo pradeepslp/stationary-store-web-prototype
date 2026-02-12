@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # stationary-store-web-prototype
 =======
-# Kavya Fancy Store – Stationary Store
+# Kavya Fancy Store 
 
 A Next.js catalog site for a small stationery store with a public product list and an owner dashboard for managing products.
 

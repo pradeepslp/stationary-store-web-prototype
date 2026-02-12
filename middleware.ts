@@ -4,18 +4,31 @@ import type { NextRequest } from "next/server";
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  if (!pathname.startsWith("/dashboard")) return NextResponse.next();
-  if (pathname === "/dashboard/login") return NextResponse.next();
 
+  // Only apply middleware to dashboard routes
+  if (!pathname.startsWith("/dashboard")) {
+    return NextResponse.next();
+  }
+
+  // Allow login page access without authentication
+  if (pathname === "/dashboard/login") {
+    return NextResponse.next();
+  }
+
+  // Check for valid JWT token
   const token = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
   });
+
+  // No valid token found - redirect to login
   if (!token) {
-    const login = new URL("/dashboard/login", request.url);
-    login.searchParams.set("callbackUrl", pathname);
-    return NextResponse.redirect(login);
+    const loginUrl = new URL("/dashboard/login", request.url);
+    loginUrl.searchParams.set("callbackUrl", pathname);
+    return NextResponse.redirect(loginUrl);
   }
+
+  // Token is valid, continue
   return NextResponse.next();
 }
 

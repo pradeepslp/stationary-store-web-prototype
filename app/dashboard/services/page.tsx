@@ -7,6 +7,7 @@ import { DashboardServiceActions } from "@/components/DashboardServiceActions";
 import { PRODUCTS_PER_PAGE } from "@/lib/utils";
 import { DashboardPagination } from "@/components/DashboardPagination";
 import { SectionHeading } from "@/components/SectionHeading";
+import type { Service } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
@@ -62,7 +63,7 @@ export default async function DashboardServicesPage({
                     </tr>
                   </thead>
                   <tbody>
-                    {services.map((service, idx) => (
+                    {services.map((service: Service, idx: number) => (
                       <tr
                         key={service.id}
                         className={`bg-transparent text-white border-b border-white/5 hover:bg-white/10 transition-colors ${

@@ -1,7 +1,9 @@
+import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
 import { ProductsPagination } from "@/components/ProductsPagination";
 import { PRODUCTS_PER_PAGE } from "@/lib/utils";
+import type { Product } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
@@ -34,7 +36,7 @@ export default async function ProductsPage({
     select: { category: true },
     distinct: ["category"],
   });
-  const categoryList = categories.map((c) => c.category).filter(Boolean) as string[];
+  const categoryList = categories.map((c: { category: string | null }) => c.category).filter(Boolean) as string[];
   const totalPages = Math.ceil(total / PRODUCTS_PER_PAGE);
 
   return (
@@ -42,7 +44,7 @@ export default async function ProductsPage({
       <h1 className="text-3xl font-bold text-ink sm:text-4xl">All products</h1>
       {categoryList.length > 0 && (
         <div className="mt-4 flex flex-wrap gap-2">
-          <a
+          <Link
             href="/products"
             className={`rounded-full px-4 py-2 text-base font-medium transition ${
               !category
@@ -51,9 +53,9 @@ export default async function ProductsPage({
             }`}
           >
             All
-          </a>
+          </Link>
           {categoryList.map((cat) => (
-            <a
+            <Link
               key={cat}
               href={`/products?category=${encodeURIComponent(cat)}`}
               className={`rounded-full px-4 py-2 text-base font-medium transition ${
@@ -63,7 +65,7 @@ export default async function ProductsPage({
               }`}
             >
               {cat}
-            </a>
+            </Link>
           ))}
         </div>
       )}
@@ -72,7 +74,7 @@ export default async function ProductsPage({
       ) : (
         <>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {products.map((product) => (
+            {products.map((product: Product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

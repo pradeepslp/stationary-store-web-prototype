@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
 import { SectionHeading } from "@/components/SectionHeading";
+import type { Service, Product } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
@@ -43,7 +44,7 @@ export default async function HomePage() {
           <p className="mt-6 text-base text-gray-600">No services available yet. Check back soon.</p>
         ) : (
           <div className="mt-6 grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-            {services.map((service) => (
+            {services.map((service: Service) => (
               <Link
                 key={service.id}
                 href={`/services/${service.slug}`}
@@ -73,7 +74,7 @@ export default async function HomePage() {
           <p className="mt-6 text-base text-gray-600">No products yet. Check back soon.</p>
         ) : (
           <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {products.map((product) => (
+            {products.map((product: Product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

@@ -8,6 +8,7 @@ import { DashboardProductActions } from "@/components/DashboardProductActions";
 import { PRODUCTS_PER_PAGE, formatPrice } from "@/lib/utils";
 import { DashboardPagination } from "@/components/DashboardPagination";
 import { SectionHeading } from "@/components/SectionHeading";
+import type { Product } from "@prisma/client";
 
 export const dynamic = "force-dynamic";
 
@@ -66,7 +67,7 @@ export default async function DashboardProductsPage({
                     </tr>
                   </thead>
                   <tbody>
-                    {products.map((product, idx) => (
+                    {products.map((product: Product, idx: number) => (
                       <tr
                         key={product.id}
                         className={`bg-transparent text-white border-b border-white/5 hover:bg-white/10 transition-colors ${

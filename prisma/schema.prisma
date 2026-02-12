@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql" // Changed from "sqlite"
+  provider = "mongodb" // Changed from "sqlite"
   url      = env("DATABASE_URL")
 }
 
 model User {
-  id           String   @id @default(cuid())
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   email        String   @unique
   passwordHash String
   createdAt    DateTime @default(now())
@@ -16,7 +16,7 @@ model User {
 }
 
 model Product {
-  id          String   @id @default(cuid())
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   slug        String   @unique
   description String?
@@ -29,7 +29,7 @@ model Product {
 }
 
 model Service {
-  id           String   @id @default(cuid())
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   name         String
   slug         String   @unique
   description  String?
@@ -42,7 +42,7 @@ model Service {
 }
 
 model Settings {
-  id    String   @id @default(cuid())
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
   key   String   @unique
   value String?
   createdAt DateTime @default(now())

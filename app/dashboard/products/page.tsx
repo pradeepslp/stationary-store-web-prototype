@@ -54,16 +54,16 @@ export default async function DashboardProductsPage({
           <div className="mt-6">
             <div className="overflow-x-auto">
               <div className="bg-black/60 backdrop-blur-lg border border-white/10 rounded-xl overflow-hidden shadow-2xl">
-                <table className="w-full min-w-[700px] border-collapse">
+                <table className="w-full border-collapse text-sm sm:text-base">
                   <thead>
-                    <tr className="bg-white/90 text-black uppercase tracking-widest font-bold text-sm text-left">
-                      <th className="py-3 px-4">Image</th>
-                      <th className="py-3 px-4">Name</th>
-                      <th className="py-3 px-4">Category</th>
-                      <th className="py-3 px-4">Price</th>
-                      <th className="py-3 px-4">Stock</th>
-                      <th className="py-3 px-4">Status</th>
-                      <th className="py-3 px-4">Actions</th>
+                    <tr className="bg-white/90 text-black uppercase tracking-widest font-bold text-xs sm:text-sm text-left">
+                      <th className="py-2 sm:py-3 px-2 sm:px-4">Image</th>
+                      <th className="py-2 sm:py-3 px-2 sm:px-4">Name</th>
+                      <th className="hidden sm:table-cell py-2 sm:py-3 px-2 sm:px-4">Category</th>
+                      <th className="py-2 sm:py-3 px-2 sm:px-4">Price</th>
+                      <th className="hidden md:table-cell py-2 sm:py-3 px-2 sm:px-4">Stock</th>
+                      <th className="hidden lg:table-cell py-2 sm:py-3 px-2 sm:px-4">Status</th>
+                      <th className="py-2 sm:py-3 px-2 sm:px-4">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -74,26 +74,26 @@ export default async function DashboardProductsPage({
                           idx % 2 === 0 ? "even:bg-white/5" : ""
                         }`}
                       >
-                        <td className="py-3 px-4">
+                        <td className="py-2 sm:py-3 px-2 sm:px-4">
                           {product.imageUrl ? (
-                            <div className="w-16 h-12 relative rounded overflow-hidden bg-white/5">
+                            <div className="w-12 h-10 sm:w-16 sm:h-12 relative rounded overflow-hidden bg-white/5">
                               <Image src={product.imageUrl} alt={product.name} fill className="object-cover" />
                             </div>
                           ) : (
-                            <div className="w-16 h-12 flex items-center justify-center bg-white/5 text-sm text-white/60 rounded">—</div>
+                            <div className="w-12 h-10 sm:w-16 sm:h-12 flex items-center justify-center bg-white/5 text-xs sm:text-sm text-white/60 rounded">—</div>
                           )}
                         </td>
-                        <td className="py-3 px-4 text-base font-medium">{product.name}</td>
-                        <td className="py-3 px-4 text-base">{product.category ?? "—"}</td>
-                        <td className="py-3 px-4 text-base">{formatPrice(product.price)}</td>
-                        <td className="py-3 px-4 text-base">—</td>
-                        <td className="py-3 px-4">
-                          <span className={`rounded-full px-2 py-1 text-sm font-medium ${product.published ? "bg-white text-black" : "bg-white/5 text-white/80"}`}>
+                        <td className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-base font-medium line-clamp-1">{product.name}</td>
+                        <td className="hidden sm:table-cell py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-base">{product.category ?? "—"}</td>
+                        <td className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-base">{formatPrice(product.price)}</td>
+                        <td className="hidden md:table-cell py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-base">—</td>
+                        <td className="hidden lg:table-cell py-2 sm:py-3 px-2 sm:px-4">
+                          <span className={`rounded-full px-2 py-1 text-xs sm:text-sm font-medium ${product.published ? "bg-white text-black" : "bg-white/5 text-white/80"}`}>
                             {product.published ? "Published" : "Draft"}
                           </span>
                         </td>
-                        <td className="py-3 px-4">
-                          <div className="flex items-center gap-2">
+                        <td className="py-2 sm:py-3 px-2 sm:px-4">
+                          <div className="flex items-center gap-1 sm:gap-2">
                             <DashboardProductActions product={product} />
                           </div>
                         </td>

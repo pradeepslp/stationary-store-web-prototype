@@ -24,6 +24,7 @@ const sourceSans = Source_Sans_3({
 export const metadata: Metadata = {
   title: "Kavya Fancy Store | Fine Stationery",
   description: "A small fancy stationery store. Browse our curated collection.",
+  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
 };
 
 async function getBackgroundImage() {

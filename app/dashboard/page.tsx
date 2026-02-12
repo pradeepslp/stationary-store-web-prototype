@@ -18,35 +18,35 @@ export default async function DashboardHomePage() {
 
   return (
     <div>
-      <h1 className="font-serif text-3xl font-semibold text-ink">Dashboard</h1>
-      <p className="mt-2 text-base text-ink/70">Manage your store products.</p>
-      <div className="mt-8 grid gap-4 sm:grid-cols-3">
+      <h1 className="font-serif text-2xl sm:text-3xl font-semibold text-ink">Dashboard</h1>
+      <p className="mt-1 sm:mt-2 text-sm sm:text-base text-ink/70">Manage your store products.</p>
+      <div className="mt-6 sm:mt-8 grid gap-3 sm:gap-4 sm:grid-cols-3">
         <div
-          className="rounded-lg border border-stone/20 p-6 shadow-sm backdrop-blur-md bg-opacity-80"
+          className="rounded-lg border border-stone/20 p-4 sm:p-6 shadow-sm backdrop-blur-md bg-opacity-80"
           style={{ backgroundColor: 'var(--card-background)', color: 'var(--card-text-color)' }}
         >
-          <p className="text-base font-medium opacity-80">Total products</p>
-          <p className="mt-1 text-4xl font-serif font-semibold">{total}</p>
+          <p className="text-xs sm:text-base font-medium opacity-80">Total products</p>
+          <p className="mt-1 text-3xl sm:text-4xl font-serif font-semibold">{total}</p>
         </div>
         <div
-          className="rounded-lg border border-stone/20 p-6 shadow-sm backdrop-blur-md bg-opacity-80"
+          className="rounded-lg border border-stone/20 p-4 sm:p-6 shadow-sm backdrop-blur-md bg-opacity-80"
           style={{ backgroundColor: 'var(--card-background)', color: 'var(--card-text-color)' }}
         >
-          <p className="text-base font-medium opacity-80">Published</p>
-          <p className="mt-1 text-4xl font-serif font-semibold text-sage">{published}</p>
+          <p className="text-xs sm:text-base font-medium opacity-80">Published</p>
+          <p className="mt-1 text-3xl sm:text-4xl font-serif font-semibold text-sage">{published}</p>
         </div>
         <div
-          className="rounded-lg border border-stone/20 p-6 shadow-sm backdrop-blur-md bg-opacity-80"
+          className="rounded-lg border border-stone/20 p-4 sm:p-6 shadow-sm backdrop-blur-md bg-opacity-80"
           style={{ backgroundColor: 'var(--card-background)', color: 'var(--card-text-color)' }}
         >
-          <p className="text-base font-medium opacity-80">Drafts</p>
-          <p className="mt-1 text-4xl font-serif font-semibold">{draft}</p>
+          <p className="text-xs sm:text-base font-medium opacity-80">Drafts</p>
+          <p className="mt-1 text-3xl sm:text-4xl font-serif font-semibold">{draft}</p>
         </div>
       </div>
-      <div className="mt-8">
+      <div className="mt-6 sm:mt-8">
         <Link
           href="/dashboard/products"
-          className="inline-block rounded border border-ink bg-ink px-4 py-2 text-base font-medium text-cream hover:bg-ink/90 transition"
+          className="inline-block rounded border border-ink bg-ink px-4 py-2 text-sm sm:text-base font-medium text-cream hover:bg-ink/90 transition"
         >
           Manage products
         </Link>

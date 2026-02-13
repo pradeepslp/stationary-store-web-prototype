@@ -15,10 +15,10 @@ export function Footer() {
             <h3 className="text-xs sm:text-sm lg:text-base font-semibold uppercase tracking-wider text-white/90">Shop</h3>
             <ul className="mt-2 sm:mt-3 space-y-1.5 sm:space-y-2 text-xs sm:text-sm lg:text-base text-white/80">
               <li>
-                <a href="/" className="hover:text-primary transition-colors">Home</a>
+                <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               </li>
               <li>
-                <a href="/products" className="hover:text-primary transition-colors">Products</a>
+                <Link href="/products" className="hover:text-primary transition-colors">Products</Link>
               </li>
             </ul>
           </div>
@@ -26,10 +26,10 @@ export function Footer() {
             <h3 className="text-xs sm:text-sm lg:text-base font-semibold uppercase tracking-wider text-white/90">Account</h3>
             <ul className="mt-2 sm:mt-3 space-y-1.5 sm:space-y-2 text-xs sm:text-sm lg:text-base text-white/80">
               <li>
-                <a href="/dashboard" className="hover:text-primary transition-colors">Dashboard</a>
+                <Link href="/dashboard" className="hover:text-primary transition-colors">Dashboard</Link>
               </li>
               <li>
-                <a href="/dashboard/login" className="hover:text-primary transition-colors">Login</a>
+                <Link href="/dashboard/login" className="hover:text-primary transition-colors">Login</Link>
               </li>
             </ul>
           </div>

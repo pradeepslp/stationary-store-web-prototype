@@ -53,13 +53,13 @@ export default async function DashboardServicesPage({
           <div className="mt-6">
             <div className="overflow-x-auto">
               <div className="bg-black/60 backdrop-blur-lg border border-white/10 rounded-xl overflow-hidden shadow-2xl">
-                <table className="w-full border-collapse text-sm sm:text-base">
+                <table className="w-full min-w-[700px] border-collapse">
                   <thead>
-                    <tr className="bg-white/90 text-black uppercase tracking-widest font-bold text-xs sm:text-sm text-left">
-                      <th className="py-2 sm:py-3 px-2 sm:px-4">Name</th>
-                      <th className="hidden sm:table-cell py-2 sm:py-3 px-2 sm:px-4">Description</th>
-                      <th className="hidden md:table-cell py-2 sm:py-3 px-2 sm:px-4">Details</th>
-                      <th className="py-2 sm:py-3 px-2 sm:px-4">Actions</th>
+                    <tr className="bg-white/90 text-black uppercase tracking-widest font-bold text-sm text-left">
+                      <th className="py-3 px-4">Service Name</th>
+                      <th className="py-3 px-4">Description</th>
+                      <th className="py-3 px-4">Price / Details</th>
+                      <th className="py-3 px-4">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -70,11 +70,11 @@ export default async function DashboardServicesPage({
                           idx % 2 === 0 ? "even:bg-white/5" : ""
                         }`}
                       >
-                        <td className="py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-base font-medium line-clamp-1">{service.name}</td>
-                        <td className="hidden sm:table-cell py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-base text-white/80 line-clamp-2">{service.description ?? "—"}</td>
-                        <td className="hidden md:table-cell py-2 sm:py-3 px-2 sm:px-4 text-xs sm:text-base line-clamp-1">{service.priceDetails ?? "—"}</td>
-                        <td className="py-2 sm:py-3 px-2 sm:px-4">
-                          <div className="flex items-center gap-1 sm:gap-2">
+                        <td className="py-3 px-4 text-base font-medium">{service.name}</td>
+                        <td className="py-3 px-4 text-base text-white/80 line-clamp-2">{service.description ?? "—"}</td>
+                        <td className="py-3 px-4 text-base">{service.priceDetails ?? "—"}</td>
+                        <td className="py-3 px-4">
+                          <div className="flex items-center gap-2">
                             <DashboardServiceActions service={service} />
                           </div>
                         </td>

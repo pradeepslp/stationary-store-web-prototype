@@ -64,7 +64,7 @@ export default async function ServiceDetailPage({ params }: Props) {
           </p>
           <div className="mt-8 flex gap-4 flex-wrap">
             <Link
-              href="https://wa.me/9190XXXXXXXX?text=I%20am%20interested%20in%20your%20services"
+              href="https://wa.me/917639363444?text=I%20am%20interested%20in%20your%20services"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block rounded bg-primary py-3 px-6 text-center font-semibold text-header hover:bg-primaryHover transition-colors"

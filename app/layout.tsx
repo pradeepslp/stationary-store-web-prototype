@@ -6,6 +6,9 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Providers } from "@/components/Providers";
 import ThemeSync from "@/components/ThemeSync";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { CartDrawer } from "@/components/CartDrawer";
+import { StickyBottomNav } from "@/components/StickyBottomNav";
 import { prisma } from "@/lib/prisma";
 
 const cormorant = Cormorant_Garamond({
@@ -24,13 +27,15 @@ const sourceSans = Source_Sans_3({
 export const metadata: Metadata = {
   title: "Kavya Fancy Store | Fine Stationery",
   description: "A small fancy stationery store. Browse our curated collection.",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
 };
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 
 async function getBackgroundImage() {
   try {
@@ -52,7 +57,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${cormorant.variable} ${sourceSans.variable}`}>
-      <body className="min-h-screen flex flex-col font-sans">
+      <body className="min-h-screen flex flex-col font-sans bg-cream">
         {/* Global Background Layer */}
         {backgroundImage && (
           <div className="fixed inset-0 z-[-10] overflow-hidden">
@@ -73,11 +78,15 @@ export default async function RootLayout({
           </div>
         )}
         <Providers>
+          <LoadingScreen />
           <Header />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 pb-16 md:pb-0">{children}</main>
+          <CartDrawer />
+          <StickyBottomNav />
           <Footer />
         </Providers>
       </body>
     </html>
   );
 }
+
